@@ -5,6 +5,17 @@ This repository contains a recipe for building Scipy 1.3.3 in the OpenEmbedded
 build system as well as a series of patches and `bbappend` files necessary to
 build the recipe.
 
+FORTRAN support
+---------------
+
+To enable FORTRAN support, append the following lines to your `local.conf` file:
+
+    FORTRAN_forcevariable = ",fortran"
+    RUNTIMETARGET_append_pn-gcc-runtime = " libquadmath"
+
+If you're using a custom distribution, you can alternatively include those two
+lines in your `distro.conf` file.
+
 LAPACK
 ------
 
