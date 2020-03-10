@@ -10,19 +10,33 @@ Installation
 
 There are a couple of ways to use this recipe in your own design:
 
-1.  Simply clone this repo as a new layer in your workspace
+1. Simply clone this repo as a new layer in your workspace
 
         git clone https://github.com/gpanders/oe-scipy meta-scipy
         bitbake-layers add-layer meta-scipy
 
-2.  Download the archive as a ZIP file and unzip the contents into your own
-    layer
+2. Download the archive as a ZIP file and unzip the contents into your own
+   layer
 
         wget https://github.com/gpanders/oe-scipy/archive/master.zip
         unzip master.zip
         cp -r oe-scipy-master/recipes-devtools meta-mylayer/
 
 **Do not** add this recipe into an existing upstream layer (such as `meta-oe`).
+
+Dependencies
+------------
+
+This recipe depends on:
+
+*  [meta-oe][]
+*  [meta-python][]
+
+The recipe was tested using the `warrior` branch in all upstream layers
+(including the `poky` reference distribution). YMMV with other versions.
+
+[meta-oe]: https://layers.openembedded.org/layerindex/branch/master/layer/meta-oe/
+[meta-python]: https://layers.openembedded.org/layerindex/branch/master/layer/meta-python/
 
 FORTRAN support
 ---------------
@@ -44,7 +58,6 @@ included in the [meta-oe][] layer is able to build the CBLAS library
 by setting the `CBLAS=ON` CMake parameter. This is done in the
 [`lapack_%.bbappend`][lapack] file.
 
-[meta-oe]: https://layers.openembedded.org/layerindex/branch/master/layer/meta-oe/
 [lapack]: recipes-devtools/lapack/lapack_%25.bbappend
 
 CMake
