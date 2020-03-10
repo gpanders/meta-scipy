@@ -5,6 +5,25 @@ This repository contains a recipe for building Scipy 1.3.3 in the OpenEmbedded
 build system as well as a series of patches and `bbappend` files necessary to
 build the recipe.
 
+Installation
+------------
+
+There are a couple of ways to use this recipe in your own design:
+
+1.  Simply clone this repo as a new layer in your workspace
+
+        git clone https://github.com/gpanders/oe-scipy meta-scipy
+        bitbake-layers add-layer meta-scipy
+
+2.  Download the archive as a ZIP file and unzip the contents into your own
+    layer
+
+        wget https://github.com/gpanders/oe-scipy/archive/master.zip
+        unzip master.zip
+        cp -r oe-scipy-master/recipes-devtools meta-mylayer/
+
+**Do not** add this recipe into an existing upstream layer (such as `meta-oe`).
+
 FORTRAN support
 ---------------
 
