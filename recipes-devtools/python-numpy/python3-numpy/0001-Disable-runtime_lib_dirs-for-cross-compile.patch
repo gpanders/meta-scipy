@@ -1,5 +1,5 @@
 From 9729175ae0ee7b2c8641483b9dfd16051cc4ad23 Mon Sep 17 00:00:00 2001
-From: Greg Anders <greande@sandia.gov>
+From: Greg Anders <greg@gpanders.com>
 Date: Mon, 2 Mar 2020 14:34:04 +0000
 Subject: [PATCH] Disable runtime_lib_dirs for cross compile
 
