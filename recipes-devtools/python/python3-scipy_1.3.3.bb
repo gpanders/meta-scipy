@@ -10,7 +10,7 @@ SRC_URI[sha256sum] = "64bf4e8ae0db2d42b58477817f648d81e77f0b381d0ea4427385bba3f9
 
 S = "${WORKDIR}/scipy-${PV}"
 
-RDEPENDS_${PN} = "${PYTHON_PN}-numpy lapack"
+RDEPENDS_${PN} = "${PYTHON_PN}-numpy ${PYTHON_PN}-multiprocessing lapack"
 DEPENDS = "${PYTHON_PN}-numpy ${PYTHON_PN}-numpy-native lapack"
 
 CLEANBROKEN = "1"
