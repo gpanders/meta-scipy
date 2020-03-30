@@ -4,13 +4,39 @@ meta-scipy
 This layer contains a recipe for building Scipy 1.3.3 as well as a series of
 patches and `bbappend` files necessary to build the recipe.
 
+Table of Contents
+-----------------
+
+- [Installation](#installation)
+- [Contributing](#contributing)
+- [Dependencies](#dependencies)
+- [FORTRAN support](#fortran-support)
+- [LAPACK](#lapack)
+- [CMake](#cmake)
+- [Numpy Distutils](#numpy-distutils)
+
 Installation
 ------------
 
-Simply clone this repo as a new layer in your workspace
+Simply clone this repository as a new layer in your workspace:
 
     git clone https://github.com/gpanders/meta-scipy meta-scipy
     bitbake-layers add-layer meta-scipy
+
+Contributing
+------------
+
+This repository serves as a community hub for a full OpenEmbedded Scipy
+solution. If you're able to get Scipy working for your platform or application,
+please consider [contributing your changes][firstcontributions]. You can also
+update the [wiki][], which is publicly editable.
+
+Contributions should be well-tested and should adhere to the [OpenEmbedded
+style guide][styleguide].
+
+[firstcontributions]: https://firstcontributions.github.io/
+[wiki]: https://github.com/gpanders/meta-scipy/wiki
+[styleguide]: https://www.openembedded.org/wiki/Styleguide
 
 Dependencies
 ------------
@@ -41,7 +67,7 @@ LAPACK
 ------
 
 By default, Scipy requires a CBLAS implementation of the BLAS library (it
-attemps to link against `cblas_` versions of BLAS methods). The `lapack` recipe
+attempts to link against `cblas_` versions of BLAS methods). The `lapack` recipe
 included in the [meta-oe][] layer is able to build the CBLAS library
 by setting the `CBLAS=ON` CMake parameter. This is done in the
 [`lapack_%.bbappend`][lapack] file.
