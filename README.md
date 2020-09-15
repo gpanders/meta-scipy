@@ -12,7 +12,6 @@ Table of Contents
 - [Dependencies](#dependencies)
 - [FORTRAN support](#fortran-support)
 - [LAPACK](#lapack)
-- [CMake](#cmake)
 - [Numpy Distutils](#numpy-distutils)
 
 Installation
@@ -73,19 +72,6 @@ by setting the `CBLAS=ON` CMake parameter. This is done in the
 [`lapack_%.bbappend`][lapack] file.
 
 [lapack]: recipes-devtools/lapack/lapack_%25.bbappend
-
-CMake
------
-
-Unfortunately, setting `CBLAS=ON` in the `lapack` recipe causes other errors
-when building LAPACK. In particular, the LAPACK CMake build process has a step
-to ensure that the provided Fortran and C compilers are compatible with each
-other. This step had an unknown bug when performed in a cross-compiling
-context which has now been addressed [upstream][]. The patch for that fix is
-included in the [`cmake-native_%.bbappend`][cmake] file in this repository.
-
-[upstream]: https://gitlab.kitware.com/cmake/cmake/merge_requests/4404
-[cmake]: recipes-devtools/cmake/cmake-native_%25.bbappend
 
 Numpy Distutils
 ---------------
