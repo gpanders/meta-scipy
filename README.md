@@ -18,9 +18,10 @@ Table of Contents
 Installation
 ------------
 
-Simply clone this repository as a new layer in your workspace:
+Clone this repository with tag or branch corresponding to your OpenEmbedded
+version and add it to your workspace. For example, if using `warrior`:
 
-    git clone https://github.com/gpanders/meta-scipy meta-scipy
+    git clone -b warrior https://github.com/gpanders/meta-scipy meta-scipy
     bitbake-layers add-layer meta-scipy
 
 Contributing
