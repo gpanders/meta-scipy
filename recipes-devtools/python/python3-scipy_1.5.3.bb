@@ -1,17 +1,16 @@
 inherit pypi setuptools3
 
-SUMMARY = "Scientific Library for Python"
+SUMMARY = "SciPy: Scientific Library for Python"
 HOMEPAGE = "https://www.scipy.org"
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=eb7262aea2504e4c0dfd16f5079e14dd"
+LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=8256119827cf2bbe63512d4868075867"
 
-SRC_URI += "file://0001-Allow-passing-flags-via-FARCH-for-mach.patch"
+SRC_URI += " file://0001-Allow-passing-flags-via-FARCH-for-mach.patch"
+SRC_URI[md5sum] = "ecf5c58e4df1d257abf1634d51cb9205"
+SRC_URI[sha256sum] = "ddae76784574cc4c172f3d5edd7308be16078dd3b977e8746860c76c195fa707"
 
-SRC_URI[md5sum] = "b265efea6ce2f2c1e580cc66bfb8b117"
-SRC_URI[sha256sum] = "64bf4e8ae0db2d42b58477817f648d81e77f0b381d0ea4427385bba3f959380a"
-
-DEPENDS += "${PYTHON_PN}-numpy ${PYTHON_PN}-numpy-native lapack"
-RDEPENDS_${PN} += "${PYTHON_PN}-numpy ${PYTHON_PN}-multiprocessing lapack"
+DEPENDS += "${PYTHON_PN}-numpy ${PYTHON_PN}-numpy-native ${PYTHON_PN}-pybind11-native lapack"
+RDEPENDS_${PN} += "${PYTHON_PN}-numpy lapack"
 
 CLEANBROKEN = "1"
 
