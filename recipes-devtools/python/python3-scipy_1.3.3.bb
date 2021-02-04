@@ -14,7 +14,6 @@ S = "${WORKDIR}/scipy-${PV}"
 
 RDEPENDS_${PN} += "${PYTHON_PN}-numpy ${PYTHON_PN}-multiprocessing lapack"
 DEPENDS += "${PYTHON_PN}-numpy ${PYTHON_PN}-numpy-native lapack"
-DEPENDS_class-native += "${PYTHON_PN}-numpy-native openblas-native lapack-native ${PYTHON_PN}-pybind11-native"
 
 CLEANBROKEN = "1"
 
@@ -23,11 +22,8 @@ inherit setuptools3
 export LAPACK = "${STAGING_LIBDIR}"
 export BLAS = "${STAGING_LIBDIR}"
 
-FARCH = "${TUNE_CCARGS}"
-FARCH_class-native = ""
-
 export F90 = "${TARGET_PREFIX}gfortran"
-export FARCH
+export FARCH = "${TUNE_CCARGS}"
 # Numpy expects the LDSHARED env variable to point to a single
 # executable, but OE sets it to include some flags as well. So we split
 # the existing LDSHARED variable into the base executable and flags, and
@@ -37,5 +33,3 @@ export LDSHARED := "${@d.getVar('LDSHARED', True).split()[0]}"
 
 # Tell Numpy to look in target sysroot site-packages directory for libraries
 LDFLAGS_append = " -L${STAGING_LIBDIR}/${PYTHON_DIR}/site-packages/numpy/core/lib"
-
-BBCLASSEXTEND += "nativesdk native"
