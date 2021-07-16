@@ -1,3 +1,10 @@
+This repository is archived
+===========================
+
+Please follow development of the meta-scipy layer at https://github.com/tuxable-ltd/meta-scipy.
+
+See [this issue](https://github.com/gpanders/meta-scipy/issues/20) for more information.
+
 meta-scipy
 ==========
 
