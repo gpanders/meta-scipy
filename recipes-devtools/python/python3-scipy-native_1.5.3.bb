@@ -1,4 +1,4 @@
-inherit pypi setuptools3
+inherit pypi setuptools3 native
 
 SUMMARY = "SciPy: Scientific Library for Python"
 HOMEPAGE = "https://www.scipy.org"
@@ -9,8 +9,7 @@ SRC_URI += " file://0001-Allow-passing-flags-via-FARCH-for-mach.patch"
 SRC_URI[md5sum] = "ecf5c58e4df1d257abf1634d51cb9205"
 SRC_URI[sha256sum] = "ddae76784574cc4c172f3d5edd7308be16078dd3b977e8746860c76c195fa707"
 
-DEPENDS += "${PYTHON_PN}-numpy ${PYTHON_PN}-numpy-native ${PYTHON_PN}-pybind11-native lapack"
-RDEPENDS_${PN} += "${PYTHON_PN}-numpy lapack"
+DEPENDS += "${PYTHON_PN}-numpy-native openblas-native lapack-native ${PYTHON_PN}-pybind11-native"
 
 CLEANBROKEN = "1"
 
@@ -18,7 +17,6 @@ export LAPACK = "${STAGING_LIBDIR}"
 export BLAS = "${STAGING_LIBDIR}"
 
 export F90 = "${TARGET_PREFIX}gfortran"
-export FARCH = "${TUNE_CCARGS}"
 # Numpy expects the LDSHARED env variable to point to a single
 # executable, but OE sets it to include some flags as well. So we split
 # the existing LDSHARED variable into the base executable and flags, and
